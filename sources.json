@@ -1,6 +1,6 @@
 {
 	"JQuery": {
-		"script": "3.2.1/jquery.min.js",
+		"script": "jquery/3.2.1/jquery.min.js",
         "url": "https://ajax.googleapis.com/ajax/libs/"
 	},
 
