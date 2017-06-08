@@ -5,4 +5,4 @@ quickLib
  ( https://developers.google.com/speed/libraries/ )
 
 
-<img src="https://badges.ml/brackets-quicklib/total.svg?do_not_track" alt="total downloads of brackets-quicklib" class="hoverable"><img src="https://badges.ml/brackets-quicklib/last-version.svg?do_not_track" alt="last-version downloads of brackets-quicklib" class="hoverable">
+[![Downloads](https://badges.ml/brackets-quicklib/total.svg)](https://brackets-extension-badges.github.io#brackets-quicklib)      [![Downloads](https://badges.ml/brackets-quicklib/last-version.svg)](https://brackets-extension-badges.github.io#brackets-quicklib)
