@@ -3,7 +3,7 @@
   "name": "brackets-quicklib",
   "title": "quickLib",
   "homepage": "https://github.com/kopitar/brackets-quicklib",
-  "version": "0.9.2",
+  "version": "1.0.0",
   "description": "Simple access to resources on Google Hosted Libraries for fast snippet insertion (Jquery plugins,frameworks,API's,CSS).",
   "author": "Kopitar Anže <kopitar71@gmail.com> (https://github.com/kopitar)",
   "license": "MIT",
