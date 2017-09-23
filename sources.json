@@ -66,7 +66,7 @@
 	},
 
 	"Shaka Player": {
-		"script": "shaka-player/2.1.4/shaka-player.compiled.js",
+		"script": "shaka-player/2.2.1/shaka-player.compiled.js",
         "url": "https://ajax.googleapis.com/ajax/libs/"
 	},
 
