@@ -52,7 +52,7 @@ function prepareString(id) {
                 this.outputStr += "<link rel=\"stylesheet\" href=\"" + this.url + "" + this.css + "\">\n";
             }
             if (this.jscript != null ) {
-                this.outputStr += "<script src=\"" + this.url + "" + this.jscript + "\"></script>";
+                this.outputStr += "<script src=\"" + this.url + "" + this.jscript + "\"></script>\n";
             }
                 return this.outputStr;
             }
@@ -82,7 +82,6 @@ function constructMenu() {
             prepareString(name);
         });
         menu.addMenuItem(menuVariable);
-        //menu.addMenuItem(window[menuVariable]);
     });
 }
  
@@ -97,9 +96,10 @@ function openJSON() {
 // Menus -> quickLib : display the "About Extension" modal
 function aboutModal() {
     var displayAbout = "<img style=\"float: left; margin:11px 5px 0px 0px; padding:0;\" src=\"styles/images/brackets_icon.svg\" alt=\"logo\" width=\"20\" height=\"20\">";
-    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.0</small><br><br>\n";
-    displayAbout += "<span style=\"letter-spacing: 1px;\">Quick & simple adding all of those essential resources and snippets on Google Hosted Libraries.<hr>";
-    displayAbout += "<p>&#1023; Author: Kopitar Anže</p><p>&#1023; Homepage: <a href=\"https://github.com/kopitar/brackets-quicklib\" >https://github.com/kopitar/brackets-quicklib</a></p>";
+    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.1</small><br><br>\n";
+    displayAbout += "<span style=\"letter-spacing: 1px;\">Quick & simple last-version snippet insert for all resources on ";
+    displayAbout += "<a href=\"https://developers.google.com/speed/libraries/\">Google Hosted Libraries</a>.<hr>";
+    displayAbout += "<p>&#1023; Author: Kopitar Anže</p><p>&#1023; GitHub: <a href=\"https://github.com/kopitar/brackets-quicklib\" >https://github.com/kopitar/brackets-quicklib</a></p>";
     displayAbout += "&#1023; Contact: kopitar71@gmail.com<br><hr>";
     // show modal dialog with "About Extension" information
     Dialogs.showModalDialog('a',"About Extension", displayAbout);
