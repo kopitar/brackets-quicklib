@@ -5,8 +5,8 @@
 	},
 
 	"JQuery-UI": {
-		"stylesheet": "1.12.1/themes/smoothness/jquery-ui.css",
-		"script": "1.12.1/jquery-ui.min.js",
+		"stylesheet": "jqueryui/1.12.1/themes/smoothness/jquery-ui.css",
+		"script": "jqueryui/1.12.1/jquery-ui.min.js",
         "url": "https://ajax.googleapis.com/ajax/libs/"
 	},
 
@@ -66,7 +66,7 @@
 	},
 
 	"Shaka Player": {
-		"script": "shaka-player/2.2.1/shaka-player.compiled.js",
+		"script": "shaka-player/2.2.6/shaka-player.compiled.js",
         "url": "https://ajax.googleapis.com/ajax/libs/"
 	},
 
