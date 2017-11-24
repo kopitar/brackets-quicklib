@@ -1,8 +1,7 @@
-/* Brackets extension that adds simple and fast acces to all those essential libraries  */
+/* brackets-quicklib */
 define(function (require, exports, module) {
     "use strict";
-
-// IMPORTANT! all our data    
+  
 var JSONfile = require('text!sources.json');
       
 var Commands        = brackets.getModule("command/Commands"),
@@ -17,8 +16,11 @@ var Commands        = brackets.getModule("command/Commands"),
 var sourcesObject = JSON.parse(JSONfile);
 var libraryNames = Object.getOwnPropertyNames(sourcesObject);
 var localPath = ExtensionUtils.getModulePath(module);
-// isEnabled determines if a commented name of the inserted library is added (true by default)    
+
+// enable/disable prepend a comment with scripts name 
 var isEnabled = true;
+// enable/disable usage of minified version     
+var outputMinified = true;
 
 // function that inserts our content/snippet into the document  
 function insertFunction(content) {
@@ -49,10 +51,10 @@ function prepareString(id) {
                 this.outputStr += this.comment + "\n";
             }
             if (this.css != null ){
-                this.outputStr += "<link rel=\"stylesheet\" href=\"" + this.url + "" + this.css + "\">\n";
+                this.outputStr += "<link rel=\"stylesheet\" href=\"" + this.url + "" + this.css + "\">\n";               
             }
             if (this.jscript != null ) {
-                this.outputStr += "<script src=\"" + this.url + "" + this.jscript + "\"></script>\n";
+                this.outputStr += "<script src=\"" + this.url + "" + this.jscript + "\"></script>";
             }
                 return this.outputStr;
             }
@@ -67,9 +69,12 @@ function prepareString(id) {
     if (dataHolder.hasOwnProperty('stylesheet') ) {
         dataObject.css = dataHolder['stylesheet'];
     } // set CSS
-    // store output data into variable "result" with the Object.dataObject.sendString() method
+
     var result = dataObject.sendString();
-    // send result to insertFunction
+    console.log(result);
+    if ( outputMinified !== true ) {
+        result = result.replace(/.min/,"");
+    }
     insertFunction(result);
 }   
     
@@ -85,10 +90,7 @@ function constructMenu() {
     });
 }
  
-/* opens the JSON file with all the CDN data
---------------------------------------------
-   NOTICE: editing sources.json must be done without any mistakes. A single typo can cause the whole extension to go nuts because our 'quickLib' menu is 
-           constructed and commands registered in a function with data from sources.json.                                                             */
+//opens the JSON file with all the CDN data
 function openJSON() {
     CommandManager.execute(Commands.CMD_ADD_TO_WORKINGSET_AND_OPEN, {fullPath: localPath + "sources.json", paneId: "first-pane"});
 }     
@@ -96,7 +98,7 @@ function openJSON() {
 // Menus -> quickLib : display the "About Extension" modal
 function aboutModal() {
     var displayAbout = "<img style=\"float: left; margin:11px 5px 0px 0px; padding:0;\" src=\"styles/images/brackets_icon.svg\" alt=\"logo\" width=\"20\" height=\"20\">";
-    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.1</small><br><br>\n";
+    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.3</small><br><br>\n";
     displayAbout += "<span style=\"letter-spacing: 1px;\">Quick & simple last-version snippet insert for all resources on ";
     displayAbout += "<a href=\"https://developers.google.com/speed/libraries/\">Google Hosted Libraries</a>.<hr>";
     displayAbout += "<p>&#1023; Author: Kopitar Anže</p><p>&#1023; GitHub: <a href=\"https://github.com/kopitar/brackets-quicklib\" >https://github.com/kopitar/brackets-quicklib</a></p>";
@@ -115,6 +117,13 @@ this.setChecked(!this.getChecked());
 isEnabled = this.getChecked();       
 });
     
+// switch betweem normal and minified version 
+var MNU_SCRIPT = CommandManager.register('Minified version', "scriptoutput.quicklib", function() {  
+this.setChecked(!this.getChecked());
+outputMinified = this.getChecked();
+    console.log(outputMinified);
+});    
+    
 // menu option for opening sources.json
 var MNU_JSON = "openjson.quicklib";
 CommandManager.register("Open CDN source...", MNU_JSON, openJSON );    
@@ -129,6 +138,8 @@ menu.addMenuDivider();
 // divider -> Enable/Disable comment prepending -> About Extension    
 menu.addMenuItem(MNU_COMMENTS);
 MNU_COMMENTS.setChecked(isEnabled);
+menu.addMenuItem(MNU_SCRIPT);
+MNU_SCRIPT.setChecked(isEnabled);    
 menu.addMenuItem(MNU_JSON);    
 menu.addMenuItem(MNU_ABOUT);     
 
