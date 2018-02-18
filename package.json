@@ -3,7 +3,7 @@
   "title": "quickLib",
   "homepage": "https://github.com/kopitar/brackets-quicklib",
   "version": "1.0.4",
-  "description": "Simple access to resources on Google Hosted Libraries for fast snippet insertion (JQuery, AngularJS, Angular Material, etc...).",
+  "description": "Quickly insert code snippets for any of the hosted libraries on Google Hosted Libaries",
   "author": "Kopitar Anže <kopitar71@gmail.com> (https://github.com/kopitar)",
   "license": "MIT",
   "categories": ["snippets","codegen"],
