@@ -1,7 +1,4 @@
-quickLib 1.0.3
+quickLib 1.0.4
 ==========
-
- Brackets extension that adds simple access to all those essential resources on Google Hosted Libraries for fast snippet insertion.
- ( https://developers.google.com/speed/libraries/ )
-
- ( https://developers.google.com/speed/libraries/ )
+ Brackets Extension:
+ Quickly insert code snippets for any of the hosted libraries on [Google Hosted Libaries](https://developers.google.com/speed/libraries/) 

@@ -98,7 +98,7 @@ function openJSON() {
 // Menus -> quickLib : display the "About Extension" modal
 function aboutModal() {
     var displayAbout = "<img style=\"float: left; margin:11px 5px 0px 0px; padding:0;\" src=\"styles/images/brackets_icon.svg\" alt=\"logo\" width=\"20\" height=\"20\">";
-    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.3</small><br><br>\n";
+    displayAbout += "<h3 style=\"margin-bottom:-5px;\">quickLib</h3></span>\n<small>version: 1.0.4</small><br><br>\n";
     displayAbout += "<span style=\"letter-spacing: 1px;\">Quick & simple last-version snippet insert for all resources on ";
     displayAbout += "<a href=\"https://developers.google.com/speed/libraries/\">Google Hosted Libraries</a>.<hr>";
     displayAbout += "<p>&#1023; Author: Kopitar Anže</p><p>&#1023; GitHub: <a href=\"https://github.com/kopitar/brackets-quicklib\" >https://github.com/kopitar/brackets-quicklib</a></p>";
